@@ -7,14 +7,43 @@
 <body>
 
 <div id="app">
-
+    姓:  <input type="text" v-model="oneName">
+    名: <input type="text" v-model="twoName">
+    <br>
+    姓名: <span>{{fullName}}</span>
+    <hr>
+    姓名: <input type="text" v-model="allName">
+    <br>
+    姓: <b>{{oname}}</b>
+    <br>
+    名: <b>{{tname}}</b>
 </div>
 
 <script src="js/vue.min.js"></script>
 <script>
     new Vue({
         el: '#app',
-        data: {},
+        data: {
+            oneName: '',
+            twoName: '',
+            allName: '',
+            oname: '',
+            tname: '',
+        },
+        computed: {
+            fullName(){
+                return this.oneName + this.twoName
+            }
+        },
+        watch: {
+
+            allName(){
+                console.log(this.allName);
+                let name = this.allName.split(' ');
+                this.oname = name[0];
+                this.tname = name[1];
+            }
+        }
     })
 </script>
 
