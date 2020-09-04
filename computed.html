@@ -8,13 +8,37 @@
 
 <div id="app">
 
+    <p @click="lowNum">{{num}}</p>
+    <p>十位：{{parseInt(num/10)}}</p>
+    <p>个位：{{(num%10)}}</p>
+    <hr>
+    十位：<input type="number" v-model="shi" max="9" min="0">
+    个位：<input type="number" v-model="ge" max="9" min="0">
+    结果：<b>{{shi*10 + +ge}}</b>
+    结果：<b>{{res}}</b>
+
 </div>
 
 <script src="js/vue.min.js"></script>
 <script>
     new Vue({
         el: '#app',
-        data: {},
+        data: {
+            num: 99,
+            shi: '',
+            ge: '',
+        },
+        methods:{
+            lowNum(){
+                this.num -= 3;
+            },
+        },
+        computed:{
+            res(){
+                console.log(1111);
+                return this.shi * 10 + + this.ge
+            }
+        }
     })
 </script>
 
