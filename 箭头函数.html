@@ -12,6 +12,58 @@
 
 <script src="js/vue.min.js"></script>
 <script>
+
+    let app = (x, y) => console.log(x + y);
+    // app(2 , 3)
+    let app2 = x => console.log(x);
+    // app2(3)
+    let app3 = function (a, b) {
+        return a + b
+    }
+    // app(3, 5)
+
+    let app4 = (a, b) => a + b;
+    // console.log(app4(2, 3));
+    let app5 = a => a * 5;
+    let app6 = function (a) {
+        return a * 5
+    }
+    // console.log(app5(2));
+    // console.log(app6(2));
+    let app7 = () => console.log('aa');
+    // app7()
+
+    let user = {
+        username: '小红',
+        app: function () {
+            console.log(this.username);
+        }
+    }
+    // user.app()
+
+    let student = {
+        username: '小兰',
+        app: function () {
+            let name = '小黄'
+            setTimeout(function () {
+                console.log(this.name);
+
+            },1000)
+        }
+    }
+    // student.app()
+
+    let employee = {
+        username: '小黄',
+        app: function () {
+            setTimeout(() => {
+                console.log(this.username);
+            }, 1000)
+
+        }
+    }
+    // employee.app()
+
     new Vue({
         el: '#app',
         data: {},
