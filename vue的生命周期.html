@@ -7,14 +7,42 @@
 <body>
 
 <div id="app">
-
+<h3 @click="change" id="h">{{count}}</h3>
 </div>
 
 <script src="js/vue.min.js"></script>
 <script>
     new Vue({
         el: '#app',
-        data: {},
+        data: {
+            count: 20,
+        },
+        methods: {
+            change(){
+                this.count --;
+            }
+        },
+        beforeCreate: function () {
+            console.log('beforeCreate:' + this.count)
+        },
+        created: function () {
+            console.log('created:' + this.count)
+        },
+        beforeMount: function () {
+            console.log('beforeMount:' + document.getElementById('h').innerText)
+        },
+        mounted: function () {
+            console.log('mounted:' + document.getElementById('h').innerText)
+        },
+        beforeUpdate: function () {
+            console.log('beforeUpdate:' + document.getElementById('h').innerText)
+            console.log('beforeUpdate:' + this.count)
+        },
+        updated: function () {
+            console.log('updated:' + document.getElementById('h').innerText)
+            console.log('updated' + this.count)
+        }
+
     })
 </script>
 
