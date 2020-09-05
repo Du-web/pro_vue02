@@ -8,13 +8,32 @@
 
 <div id="app">
 
+    <input type="text" v-model="username">
+    <br>
+    父组件:{{username}}
+    <hr>
+    <app :test="username"></app>
+
 </div>
 
 <script src="js/vue.min.js"></script>
 <script>
+
+    let app = {
+        template:`
+            <div>这是组件传递的用户名:{{test}}</div>
+        `,
+        props:['test']
+    }
+
     new Vue({
         el: '#app',
-        data: {},
+        data: {
+            username: '',
+        },
+        components:{
+            app: app
+        }
     })
 </script>
 
