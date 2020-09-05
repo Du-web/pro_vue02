@@ -7,15 +7,36 @@
 <body>
 
 <div id="app">
-
+    <com></com>
+    <p>这是vue中的data:{{name}}</p>
+<!--    <p>这是组件中的data:{{username}}</p>-->
 </div>
 
 <script src="js/vue.min.js"></script>
 <script>
+    let com = {
+        template:`
+            <div>
+                第一个组件
+                <br>
+                <span>这是组件中的data:{{username}}</span>
+            </div>
+        `,
+        data:function () {
+            return{
+                username: '小黑'
+            }
+        }
+    }
+    Vue.component('com', com)
+
     new Vue({
         el: '#app',
-        data: {},
+        data: {
+            name: '小白'
+        },
     })
+
 </script>
 
 </body>
