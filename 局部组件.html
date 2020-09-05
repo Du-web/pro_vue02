@@ -8,13 +8,33 @@
 
 <div id="app">
 
+    <first></first>
+    <second></second>
+
 </div>
 
 <script src="js/vue.min.js"></script>
 <script>
+
+    let first = {
+        template:`
+            <div>这是first组件</div>
+        `,
+    }
+    let second = {
+        template:`
+            <div>这是second</div>
+        `,
+    }
+    Vue.component('first', first)
+
     new Vue({
         el: '#app',
         data: {},
+        components:{
+            'second': second
+        }
+
     })
 </script>
 
