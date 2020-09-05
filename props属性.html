@@ -3,18 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>title</title>
+    <style>
+        .red {
+            color: red;
+        }
+        .blue {
+            color: blue;
+        }
+    </style>
 </head>
 <body>
 
 <div id="app">
 
+    <com1></com1>
+    <com1 color="red"></com1>
+    <com1 color="blue"></com1>
+
 </div>
 
 <script src="js/vue.min.js"></script>
 <script>
+    let com = {
+        template: `
+            <div :class="color">这是vue组件</div>
+        `,
+        props: ['color']
+    }
+
     new Vue({
         el: '#app',
         data: {},
+        components:{
+            'com1': com,
+        }
     })
 </script>
 
